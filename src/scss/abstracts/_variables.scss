@@ -12,8 +12,14 @@ $transition: 0.3s ease-in-out;
 
 
 // Fonts
-// $font: 'font', sans-serif;
-
+$roboto: 'robotomono', sans-serif;
+$roboto-italic: 'robotomonoitalic', $roboto;
+$rubik: 'rubik', sans-serif;
+$rubik-italic: 'rubikitalic', $rubik;
+$rubik-medium: 'rubikmedium', $rubik;
+$rubik-medium-italic: 'rubikmediumitalic', $rubik-italic;
+$rubik-bold: 'rubikbold', $rubik-medium;
+$rubik-bold-italic: 'rubikbolditalic', $rubik-medium-italic;
 
 // Mediaqueries
 $retina: 'only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)';
