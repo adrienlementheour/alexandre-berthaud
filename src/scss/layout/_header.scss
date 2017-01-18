@@ -21,11 +21,31 @@
 		display: inline-block;
 		vertical-align: top;
 		margin: 0 0 0 25px;
-		&:after{
-			content: '.';
-		}
 	}
 	a{
 		font-size: 1.8rem;
+		position: relative;
+		z-index: 1;
+		&:after{
+			//content: '.';
+			display: inline-block;
+			vertical-align: baseline;
+			content: '';
+			width: 3px;
+			height: 3px;
+			background-color: $black;
+			border-radius: 50%;
+			transition: 0.2s ease-in-out;
+			transform-origin: 50% 50%;
+			margin: 0 0 0 0.1em;
+			z-index: -1;
+			position: relative;
+		}
+		&:hover, &:focus{
+			&:after{
+				transform: scale(6);
+				background: $theme2;
+			}
+		}
 	}
 }
