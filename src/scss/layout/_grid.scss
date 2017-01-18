@@ -5,3 +5,38 @@
     padding: 0 $gutter*2;
     margin: 0 auto;
 }
+
+.grid{
+	display: flex;
+    margin: 0 -1*$gutter;
+}
+.col-2{
+	width: calc(#{$col*2} - #{2*$gutter});
+}
+.col-3{
+	width: calc(#{$col*3} - #{2*$gutter});
+}
+.col-4{
+    width: calc(#{$col*4} - #{2*$gutter});
+}
+.col-5{
+    width: calc(#{$col*5} - #{2*$gutter});
+}
+.col-6{
+    width: calc(#{$col*6} - #{2*$gutter});
+}
+.col-7{
+	width: calc(#{$col*7} - #{2*$gutter});
+}
+.col-8{
+	width: calc(#{$col*8} - #{2*$gutter});
+}
+.col-9{
+	width: calc(#{$col*9} - #{2*$gutter});
+}
+.col-10{
+	width: calc(#{$col*10} - #{2*$gutter});
+}
+.col-11{
+	width: calc(#{$col*11} - #{2*$gutter});
+}
