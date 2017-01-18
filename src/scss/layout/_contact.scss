@@ -1,0 +1,22 @@
+/* Contact */
+.wrapper-bloc-contact{
+	margin-top: 100px;
+	margin-bottom: 150px;
+	padding: 40px 0 50px;
+	justify-content: center;
+	background: $theme2;
+	color: $white;
+}
+
+.bloc-contact{
+	width: calc(#{$col*10} - #{2*$gutter});
+	.title-contact{
+		font-family: $roboto;
+		font-size: 1.8rem;
+		color: $theme1;
+	}
+	.questions-contact{
+		font-size: 5rem;
+		line-height: 1.3;
+	}
+}

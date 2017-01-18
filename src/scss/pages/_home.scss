@@ -1,1 +1,10 @@
 /* Home specific style */
+.wrapper-bloc-desc{
+	justify-content: flex-end;
+}
+.bloc-desc{
+	width: calc(#{$col*6} - #{2*$gutter});
+	.btn{
+		margin-top: 30px;
+	}
+}
