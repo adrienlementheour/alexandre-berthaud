@@ -11,6 +11,8 @@ $(function(){
     window.requestAnimFrame = require('./requestAnimFrame.js');
     var throttle = require('./throttle.js');
 
+    var animateCircle = require('./animateCircle');
+
     var body = $('body');
     var windowWidth = $(window).outerWidth(), windowHeight = $(window).height();
 
@@ -21,6 +23,10 @@ $(function(){
     function resizeHandler(){
         windowWidth = $(window).outerWidth();
         windowHeight = $(window).height();
+    }
+
+    if($('#textCircle').length){
+        animateCircle();
     }
 
     $(window).on('resize', throttle(

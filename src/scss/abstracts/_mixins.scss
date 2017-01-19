@@ -60,6 +60,17 @@
     }
 }
 
+/// Rotated text
+/// @link https://gist.github.com/chriseppstein/8615d6dc847e10c72fe5
+@mixin rotated-text($num-letters: 100, $angle-span: 180deg, $angle-offset: 0deg){
+    $angle-per-char: $angle-span / $num-letters;
+    @for $i from 1 through $num-letters {
+        &:nth-child(#{$i}) {
+            transform: rotate($angle-offset + $angle-per-char * $i);
+        }
+    }
+}
+
 // Fonts
 // @mixin font($size){
 //     font-family: $font;

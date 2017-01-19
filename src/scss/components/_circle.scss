@@ -1,0 +1,105 @@
+/* Circle */
+.text-circle{
+	position: absolute;
+	font-size: 12rem;
+	font-family: $rubik-bold;
+	color: $white;
+	position: absolute;
+	top: 400px;
+	left: -300px;
+	width: 600px;
+	height: 600px;
+	transform-origin: 50% 50%;
+	.icon{
+		overflow: visible;
+		width: 100%;
+		height: 100%;
+	}
+	text{
+		font-size: 12em;
+		letter-spacing: -0.1em;
+	}
+	.letter{
+		position: absolute;
+		top: 0;
+		left: 50%;
+		margin: 0 0 0 -43px;
+		width: 86px;
+		height: 300px;
+		transform-origin: bottom center;
+		opacity: 0;
+		&.outlined{
+			color: transparent;
+			-webkit-text-stroke: 2px $white;
+		}
+		&:nth-child(1){
+			opacity: 1;
+			transform: rotate(17deg);
+		}
+		&:nth-child(2){
+			opacity: 1;
+			transform: rotate(45deg);
+		}
+		&:nth-child(3){
+			opacity: 1;
+			transform: rotate(62deg);
+		}
+		&:nth-child(4){
+			opacity: 1;
+			transform: rotate(86deg);
+		}
+		&:nth-child(5){
+			opacity: 1;
+			transform: rotate(107deg);
+		}
+		&:nth-child(6){
+			opacity: 1;
+			transform: rotate(127deg);
+		}
+		&:nth-child(7){
+			opacity: 1;
+			transform: rotate(140deg);
+		}
+		&:nth-child(8){
+			opacity: 1;
+			transform: rotate(163deg);
+		}
+
+		&:nth-child(9){
+			opacity: 1;
+			transform: rotate(189deg);
+		}
+		&:nth-child(10){
+			opacity: 1;
+			transform: rotate(210deg);
+		}
+		&:nth-child(11){
+			opacity: 1;
+			transform: rotate(233deg);
+		}
+		&:nth-child(12){
+			opacity: 1;
+			transform: rotate(265deg);
+		}
+		&:nth-child(13){
+			opacity: 1;
+			transform: rotate(286deg);
+		}
+		&:nth-child(14){
+			opacity: 1;
+			transform: rotate(301deg);
+		}
+		&:nth-child(15){
+			opacity: 1;
+			transform: rotate(310deg);
+		}
+		&:nth-child(16){
+			opacity: 1;
+			transform: rotate(331deg);
+		}
+		&:nth-child(17){
+			opacity: 1;
+			transform: rotate(353deg);
+		}
+	}
+}
