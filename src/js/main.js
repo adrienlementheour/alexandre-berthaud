@@ -3,7 +3,7 @@
 // var $ = require('./libs/jquery/dist/jquery.slim.min.js');
 var $ = require('jquery');
 
-var TweenMax = require('gsap');
+import TweenMax from 'gsap';
 
 
 $(function(){
@@ -11,7 +11,9 @@ $(function(){
     window.requestAnimFrame = require('./requestAnimFrame.js');
     var throttle = require('./throttle.js');
 
-    var animateCircle = require('./animateCircle');
+    var animateCircle = require('./animateCircle.js');
+    var hoverContact = require('./hoverContact.js');
+    var slider = require('./slider.js');
 
     var body = $('body');
     var windowWidth = $(window).outerWidth(), windowHeight = $(window).height();
@@ -27,6 +29,12 @@ $(function(){
 
     if($('#textCircle').length){
         animateCircle();
+    }
+    if($('.bloc-contact').length){
+        hoverContact();
+    }
+    if($('.wrapper-sliders').length){
+        slider();
     }
 
     $(window).on('resize', throttle(

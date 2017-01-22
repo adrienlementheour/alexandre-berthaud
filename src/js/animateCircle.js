@@ -1,5 +1,5 @@
 var $ = require('jquery');
-var TweenMax = require('gsap');
+import {TweenMax, TimelineMax} from 'gsap';
 
 module.exports = function(){
     var circle = $('#textCircle'),

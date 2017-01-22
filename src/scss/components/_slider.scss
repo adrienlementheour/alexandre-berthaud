@@ -1,1 +1,30 @@
 /* Slider */
+.wrapper-sliders{
+	height: 600px;
+	margin: -32px 0 0;
+	ul{
+		position: relative;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		>li{
+			position: absolute;
+			top: 0;
+			height: 100%;
+			background-position: 50% 50%;
+			background-size: cover;
+		}
+		img{
+			opacity: 0;
+		}
+	}
+}
+
+.wrapper-slider-left{
+	width: calc(#{$col*9} - #{2*$gutter});
+	height: 480px;
+	background: grey;
+	margin-left: calc(#{$col} - #{2*$gutter});
+	overflow: hidden;
+}

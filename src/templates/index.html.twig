@@ -1,8 +1,22 @@
 {% extends 'layout/layout.html.twig' %}
 
 {% block content %}
-<div class='container'>
-	<div class='grid wrapper-bloc-desc'>
+<div class='container container-page'>
+	<div class='wrapper-sliders'>
+		<div class='wrapper-slider wrapper-slider-left'>
+			{# <div class='slider'> #}
+				<ul>
+					<li style='background-image: url(../img/octo.jpg);'>
+						<img src='img/octo.jpg'>
+					</li>
+					<li style='background-image: url(../img/octo.jpg);'>
+						<img src='img/octo.jpg'>
+					</li>
+				</ul>
+			{# </div> #}
+		</div>
+	</div>
+	<div class='grid wrapper-bloc-desc grid'>
 		<div class='bloc-desc'>
 			<p>Bienvenue sur mon portfolio.<br/> Voici une sélection de mes projets préférés de 2014 à 2017.</p>
 			<a href='#' class='btn'>Voir les projets <span class='wrapper-icon-btn'><svg class='icon'><use xlink:href='#icon-arrow-right'/></svg></use></a>
@@ -15,7 +29,7 @@
 	<div class='wrapper-bloc-contact grid'>
 		<div class='bloc-contact'>
 			<h3 class='title-contact'>Contact</h3>
-			<h2 class='questions-contact'>Une idée dont vous aimeriez parler ? Un projet d’atelier à mettre en place ?</h2>
+			<h2 class='questions-contact'><span class='dash-contact'></span>Une idée dont vous aimeriez parler ? Un projet d’atelier à mettre en place ?</h2>
 		</div>
 	</div>
 </div>
