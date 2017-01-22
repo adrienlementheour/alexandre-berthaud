@@ -14,6 +14,17 @@
 			height: 100%;
 			background-position: 50% 50%;
 			background-size: cover;
+			&:before{
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: $theme1;
+				mix-blend-mode: multiply;
+			}
 		}
 		img{
 			opacity: 0;
@@ -24,7 +35,6 @@
 .wrapper-slider-left{
 	width: calc(#{$col*9} - #{2*$gutter});
 	height: 480px;
-	background: grey;
 	margin-left: calc(#{$col} - #{2*$gutter});
 	overflow: hidden;
 }

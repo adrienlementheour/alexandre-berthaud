@@ -20,9 +20,10 @@ module.exports = function(){
 		});
 		draggableElems[indexSlider] = Draggable.create(sliderList, {
 		    type: 'x',
+		    bounds: $(this),
 		    zIndexBoost: false,
 		    dragClickables: true,
-		    dragResistance: 0,
+		    dragResistance: 0.3,
 		    edgeResistance: 0.65,
 		    throwProps: true,
 		    allowNativeTouchScrolling: true,
