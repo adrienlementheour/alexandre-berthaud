@@ -6,6 +6,7 @@ var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var gulp = require('gulp');
 var browserify = require('browserify');
+var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
@@ -66,7 +67,14 @@ gulp.task('layoutImg', function() {
 });
 
 gulp.task('js', function () {
-    return browserify('src/js/main.js').bundle()
+    return browserify({
+            extensions: ['.js'],
+            entries: 'src/js/main.js',
+        })
+        .transform(babelify.configure({
+            presets: ['es2015']
+        }))
+        .bundle()
         .pipe(source('main.js'))
         .pipe(buffer())
         .pipe(uglify())
@@ -74,15 +82,14 @@ gulp.task('js', function () {
 });
 
 gulp.task('templates', function() {
-    
-        return gulp.src('src/templates/*.html.twig')
-            .pipe($.twig())
-            .pipe($.extReplace('.html', '.html.html'))
-    
-        // .pipe($.prettify({ indent_size: 4 }))
-        .pipe(htmlmin({collapseWhitespace: true}))
-        .pipe(gulp.dest('dest'))
-        .pipe($.size({title: 'template'}));
+    return gulp.src('src/templates/*.html.twig')
+        .pipe($.twig())
+        .pipe($.extReplace('.html', '.html.html'))
+
+    // .pipe($.prettify({ indent_size: 4 }))
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('dest'))
+    .pipe($.size({title: 'template'}));
 });
 
 
