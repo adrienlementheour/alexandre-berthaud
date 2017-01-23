@@ -14,6 +14,7 @@ $(function(){
     var animateCircle = require('./animateCircle.js');
     var hoverContact = require('./hoverContact.js');
     var slider = require('./slider.js');
+    var bgPage = require('./bgPage.js');
 
     var body = $('body');
     var windowWidth = $(window).outerWidth(), windowHeight = $(window).height();
@@ -35,6 +36,9 @@ $(function(){
     }
     if($('.wrapper-sliders').length){
         slider();
+    }
+    if($('.bg-page').length){
+        bgPage();
     }
 
     $(window).on('resize', throttle(
