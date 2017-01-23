@@ -36,3 +36,16 @@
 		}
 	}
 }
+
+.hover-indic{
+	width: $col*2;
+	position: absolute;
+	left: -$gutter;
+	bottom: -80px;
+	background: $white;
+	color: $black;
+	font-family: $roboto;
+	font-size: 1.6rem;
+	padding: 30px;
+	text-align: center;
+}

@@ -3,6 +3,7 @@
 	justify-content: flex-end;
 }
 .bloc-desc{
+	margin: 120px 0 0;
 	width: calc(#{$col*6} - #{2*$gutter});
 	.btn{
 		margin-top: 30px;
