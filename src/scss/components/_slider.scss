@@ -65,7 +65,7 @@
 }
 
 .wrapper-projects-titles{
-	width: 480px;
+	width: $col*3;
 	height: 97px;
 	position: absolute;
 	bottom: 93px;
@@ -87,6 +87,28 @@
 		>li{
 			margin: 0;
 			padding: 0;
+		}
+	}
+	.nb-project{
+		transform: rotate(90deg);
+		width: 33.3333%;
+		font-family: $rubik-medium;
+		font-size: 3rem;
+		color: $white;
+		position: absolute;
+		bottom: -70px;
+		left: -80px;
+		text-align: center;
+		&:before{
+			content: '';
+			display: block;
+			width: 200%;
+			height: 3px;
+			background: $white;
+			position: absolute;
+			top: 50%;
+			right: calc(100% - #{$gutter});
+			transform: translate3d(0, -50%, 0);
 		}
 	}
 }
