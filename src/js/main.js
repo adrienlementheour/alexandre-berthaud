@@ -41,11 +41,11 @@ $(function(){
         bgPage();
     }
 
-    $(window).on('resize', throttle(
-        requestAnimFrame(resizeHandler), 60)
-    ).on('load', function(){
+    // $(window).on('resize', throttle(
+    //     requestAnimFrame(resizeHandler), 60)
+    // ).on('load', function(){
 
-    });
+    // });
 
 
     $(document).on('scroll', throttle(function(){
