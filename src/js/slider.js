@@ -5,6 +5,7 @@ import ThrowPropsPlugin from 'gsap/plugins/ThrowPropsPlugin.js';
 
 module.exports = function(){
 	var wrapperSliders = $('.wrapper-sliders'), wrapperSlider = $('.wrapper-slider'), sliderList, sliderElem,
+		wrapperTitles = $('.wrapper-projects-titles'), titlesList, titlesElem, nbTitles, widthWrapperTitles,
 		widthWrapper = [], heightWrapper, nbSlides,
 		draggableElems = [],
 		sliderTarget, wrapperSliderTarget, widthWrapperTarget, xPositionTarget, wrappersSlidersSiblings, widthSliderSiblings;
@@ -22,6 +23,7 @@ module.exports = function(){
 		});
 	}
 	
+	// Place slides
 	wrapperSlider.each(function(indexSlider){
 		sliderList = $(this).find('ul');
 		sliderElem = sliderList.find('li');
@@ -49,5 +51,16 @@ module.exports = function(){
 		        }
 		    }
 		});
+	});
+
+	// Place project titles
+	titlesList = wrapperTitles.find('ul');
+	titlesElem = titlesList.find('li');
+	nbTitles = titlesElem.length;
+	widthWrapperTitles = titlesList.outerHeight();
+	TweenMax.set(titlesList, {width: nbTitles*widthWrapperTitles+'px'});
+	TweenMax.set(titlesElem, {width: widthWrapperTitles+'px'});
+	titlesElem.each(function(i){
+		TweenMax.set($(this), {left: i*widthWrapperTitles+'px'});
 	});
 }
