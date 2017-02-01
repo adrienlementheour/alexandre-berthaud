@@ -31,6 +31,9 @@
 				left: 0;
 			}
 		}
+		a{
+			display: block;
+		}
 		img{
 			opacity: 0;
 		}
@@ -65,21 +68,53 @@
 }
 
 .wrapper-projects-titles{
-	width: $col*3;
-	height: 97px;
+	//width: $col*3;
+	width: 315px;
+	height: 100px;
 	position: absolute;
-	bottom: 93px;
+	bottom: 63px;
 	left: $col*10;
 	display: block;
 	transform: rotate(-90deg);
 	transform-origin: 0 0;
-	// pointer-events: none;
+	pointer-events: none;
+	overflow: hidden;
 	h2{
 		margin: 0;
 		font-family: $rubik;
-		font-size: 7rem;
+		font-size: 5rem;
+		// font-size: 7rem;
 		color: $white;
 	}
+	ul{
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		text-align: left;
+		>li{
+			width: 100%;
+			margin: 0;
+			padding: 0 0 0 26px;
+			position: absolute;
+			top: 50%;
+			transform: translate3d(0, -50%, 0);
+		}
+	}
+}
+
+.wrapper-projects-numbers{
+	width: $col;
+	height: 42px;
+	position: absolute;
+	bottom: 140px;
+	right: 0;
+	display: block;
+	pointer-events: none;
+	overflow: hidden;
 	ul{
 		list-style-type: none;
 		margin: 0;
@@ -96,28 +131,35 @@
 			position: absolute;
 			top: 50%;
 			transform: translate3d(0, -50%, 0);
+			text-align: center;
+			font-family: $rubik-medium;
+			font-size: 3rem;
+			color: $white;
 		}
 	}
-	.nb-project{
-		transform: rotate(90deg);
-		width: 33.3333%;
-		font-family: $rubik-medium;
-		font-size: 3rem;
-		color: $white;
+}
+
+.wrapper-slider-indicator{
+	display: block;
+	position: absolute;
+	right: $col;
+	width: calc(#{2*$col} + #{2*$gutter});
+	height: 3px;
+	bottom: 160px;
+	background: $theme2;
+	.slider-indicator{
+		display: block;
+		width: 100%;
+		height: 100%;
 		position: absolute;
-		bottom: -70px;
-		left: -80px;
-		text-align: center;
-		&:before{
-			content: '';
-			display: block;
-			width: 200%;
-			height: 3px;
-			background: $white;
-			position: absolute;
-			top: 50%;
-			right: calc(100% - #{$gutter});
-			transform: translate3d(0, -50%, 0);
-		}
+		top: 0;
+		left: 0;
+		background: $white;
+	}
+}
+
+.elem-slider{
+	ul{
+		// transform: translate3d(100%, 0, 0);
 	}
 }

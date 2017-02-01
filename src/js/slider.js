@@ -8,7 +8,28 @@ module.exports = function(){
 		wrapperTitles = $('.wrapper-projects-titles'), titlesList, titlesElem, nbTitles, widthWrapperTitles,
 		widthWrapper = [], heightWrapper, nbSlides,
 		draggableElems = [],
-		sliderTarget, wrapperSliderTarget, widthWrapperTarget, xPositionTarget, wrappersSlidersSiblings, widthSliderSiblings;
+		sliderTarget, wrapperSliderTarget, widthWrapperTarget, xPositionTarget, wrappersSlidersSiblings, widthSliderSiblings,
+		wrapperOther = $('.wrapper-projects-other'),
+		elemSlider = $('.elem-slider'), elemList, elemPart, elemPartWidth, tlElems;
+
+
+	function animateSlides(){
+		// elemSlider.each(function(){
+		// 	elemList = $(this).find('ul');
+		// 	elemPart = elemList.find('li');
+		// 	if($(this).hasClass('wrapper-projects-titles')){
+		// 		// rotated element
+		// 		elemPartWidth = elemPart.outerHeight();
+		// 	}else{
+		// 		elemPartWidth = elemPart.outerWidth();
+		// 	}
+		// 	tlElems = new TimelineMax();
+		// 	tlElems.to(elemList, 0.5, {x: '-='+elemPartWidth, delay: 5, ease: Power3.easeInOut});
+		// });
+		//setTimeout(animateSlides, 10000);
+		
+		// TweenMax.to(elemSlider.find('ul'), 1, {x: 0, delay: 5});
+	}
 
 	function updateSlider(){
 		xPositionTarget = this.x;
@@ -20,6 +41,18 @@ module.exports = function(){
 		wrappersSlidersSiblings.each(function(){
 			widthSliderSiblings = $(this).outerWidth();
 			TweenMax.set($(this).find('ul'), {x: (xPositionTarget*widthSliderSiblings)/widthWrapperTarget});
+		});
+
+		wrapperOther.each(function(){
+			titlesList = $(this).find('ul');
+			if($(this).hasClass('wrapper-projects-titles')){
+				// rotated element
+				widthWrapperTitles = titlesList.find('li').outerHeight();
+			}else{
+				widthWrapperTitles = titlesList.find('li').outerWidth();
+			}
+			
+			TweenMax.set(titlesList, {x: (xPositionTarget*widthWrapperTitles)/widthWrapperTarget});
 		});
 	}
 	
@@ -54,13 +87,21 @@ module.exports = function(){
 	});
 
 	// Place project titles
-	titlesList = wrapperTitles.find('ul');
-	titlesElem = titlesList.find('li');
-	nbTitles = titlesElem.length;
-	widthWrapperTitles = titlesList.outerHeight();
-	TweenMax.set(titlesList, {width: nbTitles*widthWrapperTitles+'px'});
-	TweenMax.set(titlesElem, {width: widthWrapperTitles+'px'});
-	titlesElem.each(function(i){
-		TweenMax.set($(this), {left: i*widthWrapperTitles+'px'});
+	wrapperOther.each(function(){
+		titlesList = $(this).find('ul');
+		titlesElem = titlesList.find('li');
+		nbTitles = titlesElem.length;
+		if($(this).hasClass('wrapper-projects-titles')){
+			widthWrapperTitles = titlesList.outerHeight();
+		}else{
+			widthWrapperTitles = titlesList.outerWidth();
+		}
+		TweenMax.set(titlesList, {width: nbTitles*widthWrapperTitles+'px'});
+		TweenMax.set(titlesElem, {width: widthWrapperTitles+'px'});
+		titlesElem.each(function(i){
+			TweenMax.set($(this), {left: i*widthWrapperTitles+'px'});
+		});
 	});
+
+	animateSlides();
 }
