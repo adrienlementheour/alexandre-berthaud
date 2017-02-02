@@ -10,25 +10,49 @@ module.exports = function(){
 		draggableElems = [],
 		sliderTarget, wrapperSliderTarget, widthWrapperTarget, xPositionTarget, wrappersSlidersSiblings, widthSliderSiblings,
 		wrapperOther = $('.wrapper-projects-other'),
-		elemSlider = $('.elem-slider'), elemList, elemPart, elemPartWidth, tlElems;
+		elemSlider = $('.elem-slider'), elemList, elemPart, elemPartWidth, tlElems,
+		goingLeft = true, nbElems, nbElemsIn, currentNb, initialTimeoutSlides, timeoutSlides;
 
+
+	function moveSlides(goingLeft){
+		elemSlider.each(function(index){
+			elemList = $(this).find('ul');
+			elemPart = elemList.find('li');
+			if($(this).hasClass('wrapper-projects-titles')){
+				// rotated element
+				elemPartWidth = elemPart.outerHeight();
+			}else{
+				elemPartWidth = elemPart.outerWidth();
+			}
+			if(goingLeft){
+				TweenMax.to(elemList, 0.5, {x: '-='+elemPartWidth, ease: Power3.easeInOut});
+			}else{
+				TweenMax.to(elemList, 0.5, {x: '+='+elemPartWidth, ease: Power3.easeInOut});
+			}
+		});
+	}
+
+	function stopAnimSlider(){
+		clearTimeout(initialTimeoutSlides);
+		clearTimeout(timeoutSlides);
+	}
 
 	function animateSlides(){
-		// elemSlider.each(function(){
-		// 	elemList = $(this).find('ul');
-		// 	elemPart = elemList.find('li');
-		// 	if($(this).hasClass('wrapper-projects-titles')){
-		// 		// rotated element
-		// 		elemPartWidth = elemPart.outerHeight();
-		// 	}else{
-		// 		elemPartWidth = elemPart.outerWidth();
-		// 	}
-		// 	tlElems = new TimelineMax();
-		// 	tlElems.to(elemList, 0.5, {x: '-='+elemPartWidth, delay: 5, ease: Power3.easeInOut});
-		// });
-		//setTimeout(animateSlides, 10000);
-		
-		// TweenMax.to(elemSlider.find('ul'), 1, {x: 0, delay: 5});
+
+		if(goingLeft){
+			if(currentNb === 1){
+				goingLeft = false;
+			}
+			currentNb--;
+		}else if(!goingLeft){
+			if(currentNb === nbElems-1){
+				goingLeft = true;
+			}
+			currentNb++;
+		}
+
+		moveSlides(goingLeft);
+		timeoutSlides = setTimeout(animateSlides, 5000);
 	}
 
 	function updateSlider(){
@@ -76,6 +100,7 @@ module.exports = function(){
 		    edgeResistance: 0.65,
 		    throwProps: true,
 		    allowNativeTouchScrolling: true,
+		    onDragStart: stopAnimSlider,
 		    onDrag: updateSlider,
 		    onThrowUpdate: updateSlider,
 		    snap: {
@@ -102,6 +127,8 @@ module.exports = function(){
 			TweenMax.set($(this), {left: i*widthWrapperTitles+'px'});
 		});
 	});
-
-	animateSlides();
+	nbElems = elemSlider.length;
+	nbElemsIn = elemSlider.first().find('li').length;
+	currentNb = nbElemsIn;
+	initialTimeoutSlides = setTimeout(animateSlides, 5000);
 }
