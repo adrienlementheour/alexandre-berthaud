@@ -164,6 +164,8 @@
 	height: 3px;
 	bottom: 160px;
 	background: $theme2;
+	transform: scaleX(0);
+	transform-origin: 0 0;
 	.slider-indicator{
 		display: block;
 		width: 100%;

@@ -5,7 +5,7 @@ var animateDrag = require('./animateDrag.js');
 
 module.exports = function(){
 	var tlTransiIn = new TimelineMax(),
-		bgPage = $('.bg-page'), wrapperSlider = $('.wrapper-slider'), projectsTitles = $('.wrapper-projects-titles'), projectsNumbers = $('.wrapper-projects-numbers'), dragAnimation = $('.drag-animation');
+		bgPage = $('.bg-page'), wrapperSlider = $('.wrapper-slider'), projectsTitles = $('.wrapper-projects-titles'), projectsNumbers = $('.wrapper-projects-numbers'), dragAnimation = $('.drag-animation'), sliderIndicator = $('.wrapper-slider-indicator');
 
 	function showSlidersContent(){
 		TweenMax.to([projectsTitles, projectsNumbers, wrapperSlider.find('.content-slider')], 0.3, {opacity: 1});
@@ -14,5 +14,5 @@ module.exports = function(){
 	}
 
  	TweenMax.to(bgPage, 0.5, {scaleX: 1});
- 	TweenMax.staggerTo(wrapperSlider, 0.2, {scaleX: 1, delay: 0.2}, 0.2, showSlidersContent);
+ 	TweenMax.staggerTo([wrapperSlider, sliderIndicator], 0.2, {scaleX: 1, delay: 0.2}, 0.2, showSlidersContent);
 }
