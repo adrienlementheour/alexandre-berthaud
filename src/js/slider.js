@@ -15,6 +15,7 @@ module.exports = function(){
 		wrapperOther = $('.wrapper-projects-other'),
 		elemSlider = $('.elem-slider'), elemList, elemPart, elemPartWidth, tlElems,
 		goingLeft = true, nbElems, nbElemsIn, currentNb, initialTimeoutSlides, timeoutSlides,
+		dragAnimation = $('.drag-animation'),
 		windowHeight = $(window).height(), windowWidth = $(window).width();
 
 
@@ -61,6 +62,7 @@ module.exports = function(){
 	function stopAnimSlider(){
 		clearTimeout(initialTimeoutSlides);
 		clearTimeout(timeoutSlides);
+		TweenMax.to(dragAnimation, 0.2, {opacity: 0});
 	}
 
 	function animateSlides(){

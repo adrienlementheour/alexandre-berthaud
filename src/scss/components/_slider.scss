@@ -175,8 +175,49 @@
 	}
 }
 
-.elem-slider{
-	ul{
-		// transform: translate3d(100%, 0, 0);
+.drag-animation{
+	width: calc(#{3*$col} + #{2*$gutter});
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%, -50%, 0);
+	z-index: 2;
+	text-align: center;
+	opacity: 0;
+	pointer-events: none;
+	.drag-indicator{
+		display: block;
+		width: auto;
+		height: 3px;
+		position: absolute;
+		top: 50%;
+		left: $col/2;
+		right: $col/2;
+		background: $theme2;
+		margin: -2px 0 0 0;
+		transform: scaleX(0);
+		transform-origin: 100% 0;
+	}
+	.drag-label{
+		display: inline-block;
+		width: 33.3333%;
+		text-align: center;
+		color: $white;
+		transform: translate3d(100%, 0, 0);
+		position: relative;
+		&:after{
+			content: '';
+			display: block;
+			padding-bottom: 100%;
+			border-radius: 50%;
+			background: $theme2;
+		}
+		span{
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			transform: translate3d(0, -50%, 0);
+		}
 	}
 }
