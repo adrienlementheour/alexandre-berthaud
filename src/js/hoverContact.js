@@ -9,9 +9,9 @@ module.exports = function(){
 		tweenEnter1, tweenEnter2, tweenEnter3, timelineEnter,
 		arrowContact = blocContact.find('.icon');
 
-	tweenEnter1 = TweenMax.to(hoverIndic, 0.2, {x: -10, y: 40});
+	tweenEnter1 = TweenMax.to(hoverIndic, 0.2, {x: -20, y: -40});
 	tweenEnter2 = TweenMax.to(hoverIndic, 0.0001, {zIndex: 1});
-	tweenEnter3 = TweenMax.to(hoverIndic, 0.2, {x: 0, y: 0});
+	tweenEnter3 = TweenMax.to(hoverIndic, 0.2, {x: -10, y: 0});
 	timelineEnter = new TimelineMax({paused: true}).add(tweenEnter1).add(tweenEnter2).add(tweenEnter3);
 
 	blocContact.on('mouseenter', function(){
