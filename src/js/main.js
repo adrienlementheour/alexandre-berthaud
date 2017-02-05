@@ -16,6 +16,8 @@ $(function(){
     var slider = require('./slider.js');
     var bgPage = require('./bgPage.js');
 
+    var transiInHome = require('./transiInHome.js');
+
     var body = $('body');
     var windowWidth = $(window).outerWidth(), windowHeight = $(window).height();
 
@@ -39,6 +41,10 @@ $(function(){
     }
     if($('.bg-page').length){
         bgPage();
+    }
+
+    if($('body').hasClass('home')){
+        transiInHome();
     }
 
     // $(window).on('resize', throttle(
